@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 export default function ProductDetails() {
-  const baseURL = "https://fakestoreapi.com";
   const [product, setProduct] = useState([]);
 
   const { id } = useParams();
@@ -10,8 +9,15 @@ export default function ProductDetails() {
     const data = await response.json();
     setProduct(data);
   }
+  const storedProducts = localStorage.getItem("products");
   useEffect(() => {
-    fetchProductByID(id);
+    if (storedProducts) {
+      setProduct(
+        JSON.parse(storedProducts).find((product) => product.id === +id)
+      );
+    } else {
+      fetchProductByID(id);
+    }
   }, []);
   return (
     <div data-cy="product-item" className="product-item">
