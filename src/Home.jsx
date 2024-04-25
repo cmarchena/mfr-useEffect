@@ -1,8 +1,10 @@
+import Resize from "./Resize";
 export default function Home() {
-    return (
-        <>
-            <h1>Home</h1>
-            <p>Home</p>
-        </>
-    )
+  return (
+    <>
+      <Resize />
+      <h1>Home</h1>
+      <p>Home</p>
+    </>
+  );
 }
