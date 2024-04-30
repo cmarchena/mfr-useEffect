@@ -9,3 +9,4 @@ instead of static product data we will fetch it from `fakestoreapi.com`
 - first-version: fetch using useEffect at every render in /products and /products/:id
 - second-version: fetch and stores at localstorage (cache)
 - third-version: implements cache revalidation
+- fourth-version: we use NextJS to leverage React19's new features
